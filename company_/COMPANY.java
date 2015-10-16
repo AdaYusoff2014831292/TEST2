@@ -41,9 +41,33 @@ public class COMPANY
             
     }
     
- 
+    try{
+        ip = InetAddress.getLocalHost();
+         
+        InetAddress inet = InetAddress.getByName(ip.getHostName());
+
+        boolean status = inet.isReachable(5000);
+
+        if (status)
+        {
+            System.out.println(inet.getCanonicalHostName() + " Host Reached\t" + java.net.Inet6Address.getByName(ip.getHostName()).getHostAddress());
+        }
+        else
+        {
+            System.out.println(inet.getCanonicalHostName() + " Host Unreachable");
+        }
+        
+        System.out.println(inet.getCanonicalHostName() + " Host Reached\t" + java.net.Inet6Address.getByName(ip.getHostName()).getHostAddress());
+
+    }
+    
+    catch (IOException e)
+    {
+        System.err.println("Error in reaching the Host");
+    }
+    
    }
-  
+ 
    
    public class HelloRunnable implements Runnable {
 

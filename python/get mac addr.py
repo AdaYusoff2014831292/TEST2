@@ -7,7 +7,6 @@ def get_ip_6(host, port=0):
     result = socket.getaddrinfo(host, port, socket.AF_INET6)
     return result
 
-#!/usr/bin/python
 
 import threading
 import time

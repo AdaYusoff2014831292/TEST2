@@ -41,7 +41,7 @@ public class COMPANY
             
     }
     
-     try{
+    try{
         ip = InetAddress.getLocalHost();
          
         InetAddress inet = InetAddress.getByName(ip.getHostName());
@@ -67,7 +67,7 @@ public class COMPANY
     }
     
    }
-  
+ 
    
    public class HelloRunnable implements Runnable {
 

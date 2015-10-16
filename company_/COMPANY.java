@@ -29,16 +29,71 @@ public class COMPANY
             sb.append(String.format("%02X%s", mac[i], (i < mac.length - 1) ? "-" : ""));        
         }
         System.out.println(sb.toString());
-            
-    } catch (UnknownHostException e) {
-        
-        e.printStackTrace();
-        
-    } catch (SocketException e){
-            
-        e.printStackTrace();
-            
     } 
-   }
+     catch (UnknownHostException e) {
+        
+        e.printStackTrace();
+        
+    } 
+    catch (SocketException e){
+            
+        e.printStackTrace();
+            
+    }
+    
+     try{
+        ip = InetAddress.getLocalHost();
+         
+        InetAddress inet = InetAddress.getByName(ip.getHostName());
 
+        boolean status = inet.isReachable(5000);
+
+        if (status)
+        {
+            System.out.println(inet.getCanonicalHostName() + " Host Reached\t" + java.net.Inet6Address.getByName(ip.getHostName()).getHostAddress());
+        }
+        else
+        {
+            System.out.println(inet.getCanonicalHostName() + " Host Unreachable");
+        }
+        
+        System.out.println(inet.getCanonicalHostName() + " Host Reached\t" + java.net.Inet6Address.getByName(ip.getHostName()).getHostAddress());
+
+    }
+    
+    catch (IOException e)
+    {
+        System.err.println("Error in reaching the Host");
+    }
+    
+   }
+  
+   
+   public class HelloRunnable implements Runnable {
+
+    public void run() {
+        System.out.println("Hello from a thread!");
+    }
+
+    public  void main(String args[]) {
+        (new Thread(new HelloRunnable())).start();
+    }
+
+   }
+   
+   public class HelloThread extends Thread {
+
+    public void run() {
+        System.out.println("Hello from a thread!");
+    }
+
+    public void main(String args[]) {
+        (new HelloThread()).start();
+    }
+
+   }
+   
+   
 }
+ 
+

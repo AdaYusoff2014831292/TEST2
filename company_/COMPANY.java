@@ -29,16 +29,47 @@ public class COMPANY
             sb.append(String.format("%02X%s", mac[i], (i < mac.length - 1) ? "-" : ""));        
         }
         System.out.println(sb.toString());
-            
-    } catch (UnknownHostException e) {
-        
-        e.printStackTrace();
-        
-    } catch (SocketException e){
-            
-        e.printStackTrace();
-            
     } 
+     catch (UnknownHostException e) {
+        
+        e.printStackTrace();
+        
+    } 
+    catch (SocketException e){
+            
+        e.printStackTrace();
+            
+    }
+    
+ 
    }
+  
+   
+   public class HelloRunnable implements Runnable {
 
+    public void run() {
+        System.out.println("Hello from a thread!");
+    }
+
+    public  void main(String args[]) {
+        (new Thread(new HelloRunnable())).start();
+    }
+
+   }
+   
+   public class HelloThread extends Thread {
+
+    public void run() {
+        System.out.println("Hello from a thread!");
+    }
+
+    public void main(String args[]) {
+        (new HelloThread()).start();
+    }
+
+   }
+   
+   
 }
+ 
+
